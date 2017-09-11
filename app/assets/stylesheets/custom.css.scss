@@ -1,2 +1,73 @@
+$navbar-default-bg: #ff7f00;// Sets color of navbar
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.center {
+  text-align: left;//Aligns the text of the home page to the left.
+}
+
+.jumbotron {
+  background-image: asset-url('chicken_salad.jpg');
+  background-size: cover;
+  height: 600px;
+  margin-bottom: 5px;
+}
+
+#logo {//Sets style of "MYRECIPES" title in navbar.
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.jumbotron h1, h2 {
+  color: #ff7f00;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: left;
+  margin-bottom: 50px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.jumbotron h3 {
+  color: #ff7f00;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: left;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+  background-color: #ff7f00;
+  }
+  
+.btn-xlarge:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.row h3{
+  color: #ff7f00;
+  text-decoration: underline;
+  margin-top: 5px;
+}
+
+.col-md-12 {
+  text-align: center;
+}
+
+
+//. {
+//  margin-top: 30px;
+//  margin_bottom: 10px;
+//}
