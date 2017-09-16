@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+gem 'rails-controller-testing'#assert_template has been extracted to a gem. To continue using it, add `gem 'rails-controller-testing'` to your Gemfile.
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
