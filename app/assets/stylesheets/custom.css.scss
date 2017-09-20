@@ -65,3 +65,50 @@ $navbar-default-bg: #ff7f00;// Sets color of navbar
 .col-md-12 {
   text-align: center;
 }
+
+.description {
+  margin-top: 0;
+}
+
+.well a {
+  color: #ff7f00;
+}
+
+.chef_info {
+  margin-top: 10px;
+}
+
+.colormatch a {
+  color: #ff7f00;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {  
+color: #555; 
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+  margin-left: 15px;
+}
+
+footer ul {
+  list-style: none;
+  float: right;
+  margin-right: 15px;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
