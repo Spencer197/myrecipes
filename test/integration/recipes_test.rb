@@ -29,6 +29,8 @@ class RecipesTest < ActionDispatch::IntegrationTest
     assert_match @recipe.name, response.body#Checks for recipe name in the body of show page.
     assert_match @recipe.description, response.body#Checks for description
     assert_match @chef.chefname, response.body#Checks for chefname.
+    assert_match 'a[href=?]', edit_recipe_path(@recipe), text: "Edit this recipe"
+    assert_select 'a[href=?]', recipe_path(@recipe), text: "Delete this recipe"
   end
   
   test "create new valid recipe" do

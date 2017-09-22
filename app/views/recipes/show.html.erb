@@ -1,6 +1,7 @@
 <%#<h1 align="center">Recipe Name: <%= @recipe.name.capitalize </h1> - These two line removed to _page_title.html.erb.%>
 <%#<hr />%>
 <%= render 'shared/page_title', title: @recipe.name %><%#Passes @recipe.name to partial for display.%>
+
 <div class="well col-md-8 col-md-offset-2">
   <h4 class="center description"><strong>Steps: </strong></h4>
   <hr /><%#Adds a line across the <h4> section%>
@@ -17,5 +18,11 @@
       <small><%=@recipe.chef.chefname.capitalize%></small>
       <div class="pull-right"><%=time_ago_in_words(@recipe.created_at)%> ago</div>
     </p>
+  </div>
+  <div class="recipe-actions">
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe),class: "btn btn-xs btn-warning" %><%#Creates an orange edit warning button%>
+    <%= link_to "Delete this recipe", recipe_path(@recipe), method: :delete,
+                                      data: { confirm: "Are you sure you want to delete this recipe?" },
+                                      class: "btn btn-xs btn-danger" %>
   </div>
 </div>
