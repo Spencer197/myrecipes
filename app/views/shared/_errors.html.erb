@@ -1,0 +1,21 @@
+<% if obj.errors.any? %><%# Replaces: if @recipe.errors.any? 'obj' replaces @recipe throughout this file.  Any word could be used.%>
+  <div class="row"><%# The following block creates a red panel warning listing user input errors%>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            <%= pluralize(obj.errors.count, "error") %>
+            prohibited this <%= obj.class %> from being saved:  
+          </h1>
+          <div class= "panel-body">
+            <ul>
+              <% obj.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
