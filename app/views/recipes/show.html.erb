@@ -15,7 +15,7 @@
       <%= link_to gravatar_for(@recipe.chef), recipes_path %>
     </p>
     <p class="center">
-      <small><%=@recipe.chef.chefname.capitalize%></small>
+      <small><%=@recipe.chef.chefname.titleize%></small>
       <div class="pull-right"><%=time_ago_in_words(@recipe.created_at)%> ago</div>
     </p>
   </div>

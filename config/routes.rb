@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   #post '/recipes', to: 'recipes#create'
   #The above commented routes are all replaced by the line below.
   resources :recipes
+  
+  get '/signup', to: 'chefs#new'#This lone directs the '/signup' route to the chef controller, new action rather than the new route.
+  resources :chefs, except: [:new]#Makes an exception of 'new' so that it is replaced by 'signup'.
 end

@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   end
   
   def show
-  
+    #See set_recipe under private
   end
   
   def new
@@ -25,11 +25,11 @@ class RecipesController < ApplicationController
   end
     
     def edit
-    
+      #See set_recipe under private
     end
     
     def update
-     
+      #See set_recipe under private
       if @recipe.update(recipe_params)
         flash[:success] = "Recipe was updated successfully!"
         redirect_to recipe_path(@recipe)
