@@ -15,7 +15,7 @@ class ChefsController < ApplicationController
   end
   
   def show
-    #Directs to show.html.erb
+    @chef = Chef.find(params[:id])#Finds chef id params from database to view on chef profile page.
   end
   
   private

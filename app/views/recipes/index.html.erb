@@ -1,20 +1,7 @@
 <%#<h1 align= "center">Listing all recipes</h1> - These two lines removed to _pages_title.html.erb
-<hr /><%#Adds a line across the page as a section divider.%>
-<%= render 'shared/page_title', title: "showing all recipes"%>
-<% @recipes.each do |recipe| %>
-  <div class= "row">
-    <div class="col-md-2">
-      <section class="chef_info center">
-        <%= gravatar_for(recipe.chef, size: 120)%>
-      </section>
-    </div>
-    <div class="col-md-8 well">
-      <h4><%= link_to recipe.name, recipe_path(recipe) %></h4><%#Displays recipe's name%>
-      <p><%= truncate(recipe.description, length: 150)%></p><%#Display recipe's description%>
-      <p>
-        <span class="quiet">Created <small><%= time_ago_in_words(recipe.created_at) %></small></span><%#Displays how long ago recipe was created%>
-      </p>
-    </div>
-  </div>
+<%#<hr /><%#Adds a line across the page as a section divider.%>
+<%# The original index.html.erb code has been extracted to _recipe.html.erb.%>
 
-<% end %>
+<%= render 'shared/page_title', title: "showing all recipes" %>
+
+<%= render 'recipe', obj: @recipes %><%#Renders the _recipes partial.%>
