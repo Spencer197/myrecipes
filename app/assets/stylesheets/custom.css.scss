@@ -119,3 +119,14 @@ footer ul li {
     color: #fff;
   }
 }
+
+.listing {
+  list-style: none;//Deletes list bullets in the chef index listings. 
+  padding-left: 0;//Deletes the delfault padding of <ul>
+}
+
+.chef-title {//Increases visibility of the chefs' names on the chef index page.
+  color: #ff7f00;
+  font-weight: bold;
+  font_size: 1.25em;
+}
