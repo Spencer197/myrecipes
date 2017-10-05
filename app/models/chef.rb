@@ -7,5 +7,5 @@ class Chef < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_many :recipes#Asserts that Chef class can have many recipes associated with it.
   has_secure_password
-  validates :password, presence: true, length: { minimum: 5 }
+  validates :password, presence: true, length: { minimum: 5 }, allow_nil: true# 'allow_nil: true' allows a nil password for an edit, but requires one for signup.
 end
