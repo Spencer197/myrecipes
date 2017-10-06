@@ -1,7 +1,7 @@
 class ChefsController < ApplicationController
   
   def index
-    @chefs = Chef.all
+    @chefs = Chef.paginate(page: params[:page], per_page: 5)# Replaces @chefs = Chef.all - Arranges chefs index data into 5 chefs per page.
   end
   
   def new
@@ -20,6 +20,7 @@ class ChefsController < ApplicationController
   
   def show
     @chef = Chef.find(params[:id])#Finds chef id params from database to view on chef profile page.
+    @chef_recipes = @chef.recipes.paginate(page: params[:page], per_page: 5)#defines new instance var @chef_recipes & paginates chefs data.
   end
   
   def edit

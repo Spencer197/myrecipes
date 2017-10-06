@@ -6,4 +6,10 @@
 </div>
 
 <h4 align="center"><%=@chef.chefname %></h4><%#Shows the chef's name under the gravatar image.%>
-<%= render 'recipes/recipe', obj: @chef.recipes %><%# Renders _recipe.html.erb partial using its path, then defines the object to be used to render a chef's recipes.%>
+<div align="center">
+  <%= will_paginate @chef_recipes %><%# Calls will_paginate method for chefs index data. Adds page selector at top of page.%>
+</div>
+<%= render 'recipes/recipe', obj: @chef_recipes %><%# Renders _recipe.html.erb partial using its path, then defines the object to be used to render a chef's recipes.%>
+<div align="center">
+  <%= will_paginate @chef_recipes %><%# Calls will_paginate method for chefs index data.  Adds page selector at bottom of page.%>
+</div>

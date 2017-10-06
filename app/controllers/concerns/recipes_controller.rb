@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update] #Runs set_recipe method only before show, edit, & update methods are run.
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.paginate(page: params[:page], per_page: 5)# replaces @recipes = Recipe.all - organizes data into 5 recipes per page.
   end
   
   def show
