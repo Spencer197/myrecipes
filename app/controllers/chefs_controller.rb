@@ -37,6 +37,13 @@ class ChefsController < ApplicationController
     end
   end
   
+  def destroy
+    @chef = Chef.find(params[:id])#Find the chef to be deleted
+    @chef.destroy#Destroy/delete the selected chef
+    flash[:danger] = "Chef & all associated recipes have been deleted!"#Display a flash message
+    redirect_to chefs_path#Return to the dhefs listing.
+  end
+  
   private
   
   def chef_params
