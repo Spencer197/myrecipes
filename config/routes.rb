@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'chefs#new'#This lone directs the '/signup' route to the chef controller, new action rather than the new route.
   resources :chefs, except: [:new]#Makes an exception of 'new' so that it is replaced by 'signup'.
+  
+  get '/login', to: 'sessions#new'#Goes to sessions controller, new action.
+  post '/login', to: 'sessions#create'#This will submit/post the login new session form to the sessions controller, create action.
+  delete '/logout', to: 'sessions#destroy'#This goes down the logout path to the sessions controller, destroy action. 
 end
