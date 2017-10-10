@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update] #Runs set_recipe method only before show, edit, & update methods are run.
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy] #Runs set_recipe method only before show, edit, & update methods are run.
+  before_action :require_user, except: [:index, :show]#Requires a logged in user for all actions except index & show.
+  before_action :require_same_user, only: [:edit, :update, :destroy]#Only the user who created a recipes may edit, update, or destroy it.
   
   def index
     @recipes = Recipe.paginate(page: params[:page], per_page: 5)# replaces @recipes = Recipe.all - organizes data into 5 recipes per page.
@@ -15,7 +17,7 @@ class RecipesController < ApplicationController
   
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.chef = Chef.first
+    @recipe.chef = current_chef# Replaces: @recipe.chef = Chef.first
     if @recipe.save
       flash[:success] = "Recipe was created successfully!"#This line generates a green flash message bar indicating success.
       redirect_to recipe_path(@recipe)#Takes user to recipe show page.
@@ -52,6 +54,13 @@ class RecipesController < ApplicationController
   
     def recipe_params
       params.require(:recipe).permit(:name, :description)
+    end
+    
+    def require_same_user
+      if current_chef != @recipe.chef
+        flash[:danger] = "You can only edit and delete your own recipes."
+        redirect_to recipes_path
+      end
     end
 
 end

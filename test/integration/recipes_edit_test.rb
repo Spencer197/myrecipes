@@ -8,6 +8,7 @@ class RecipesEditTest < ActionDispatch::IntegrationTest
   end
   
   test "reject invalid recipe update" do
+    sign_in_as(@chef, "password")
     get edit_recipe_path(@recipe)#Goes to edit recipe path and uses dynamic ID number to find recipe to be edited.
     assert_template 'recipes/edit'#Asserts/displays the recipes edit form template/view.
     patch recipe_path(@recipe), params: { recipe: { name: " ", description: "some description" }}# Attempts to update an invalid recipe, but gets rejected. 
@@ -17,6 +18,7 @@ class RecipesEditTest < ActionDispatch::IntegrationTest
   end
   
   test "successfully edit a recipe" do
+    sign_in_as(@chef, "password")
     get edit_recipe_path(@recipe)
     assert_template 'recipes/edit'
     updated_name = "updated recipe name"
