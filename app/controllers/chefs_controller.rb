@@ -12,7 +12,7 @@ class ChefsController < ApplicationController
   end
   
   def create
-    #@chef = Chef.new(chef_params) - See set_chef method below.
+    @chef = Chef.new(chef_params)
     if @chef.save
       session[:chef_id] = @chef.id#Logs in a new user as soon as he/she signs up for a new account.
       flash[:success] = "Welcome #{@chef.chefname} to MyRecipes App!"
