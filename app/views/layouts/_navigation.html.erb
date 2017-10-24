@@ -41,7 +41,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <%#<li><%= link_to "Log in", login_path%></li><%#Creates 'Log in' on right side of navbar - Deleted in lec. #121.%>
+        <%#<li><%= link_to "Log in", login_path%><%#Creates 'Log in' on right side of navbar - Deleted in lec. #121.%>
         <% if logged_in? %><%#Changes drop-down menu options if logged in.%>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_chef.chefname.titleize %>'s Profile <%= "Admin" if current_chef.admin? %><span class="caret"></span></a>

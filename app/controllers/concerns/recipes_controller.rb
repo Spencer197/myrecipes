@@ -16,8 +16,8 @@ class RecipesController < ApplicationController
   end
   
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.chef = current_chef# Replaces: @recipe.chef = Chef.first
+    @recipe = Recipe.new(recipe_params)#Creates new Recipe object.
+    @recipe.chef = current_chef# Replaces: @recipe.chef = Chef.first - Assigns current_user as creator of a recipe.
     if @recipe.save
       flash[:success] = "Recipe was created successfully!"#This line generates a green flash message bar indicating success.
       redirect_to recipe_path(@recipe)#Takes user to recipe show page.

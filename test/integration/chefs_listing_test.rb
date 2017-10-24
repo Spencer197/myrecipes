@@ -24,7 +24,7 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
     get chefs_path
     assert_template 'chefs/index'
     assert_difference 'Chef.count', -1 do
-      delete chef_path(@chef2)#Deletes a test chef 'chef2' 
+      delete chef_path(@chef2)#@admin_user deletes a test chef 'chef2' 
     end
     assert_redirected_to chefs_path
     assert_not flash.empty?

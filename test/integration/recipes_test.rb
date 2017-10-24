@@ -37,7 +37,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
   
   test "create new valid recipe" do
-    sign_in_as(@chef, "password")#signs in a test user before ruuning test.
+    sign_in_as(@chef, "password")#Signs in a test user before ruuning test.
     get new_recipe_path
     assert_template 'recipes/new'
     name_of_recipe = "chicken saute"
