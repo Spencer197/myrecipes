@@ -6,4 +6,5 @@ class Recipe < ApplicationRecord
   default_scope -> { order(updated_at: :desc)}#Arranges recipes in order from newest to oldest.
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
+  has_many :comments, dependent: :destroy#destroys all comments associated with a chef when that chef is destroyed.
 end
