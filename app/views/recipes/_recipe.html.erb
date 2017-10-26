@@ -9,8 +9,11 @@
     <div class="col-md-8 well">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4><%#Displays recipe's name%>
       <p><%= truncate(recipe.description, length: 150)%></p><%#Display recipe's description%>
+      <% if recipe.ingredients.any? %><%# If an associated ingredient exists in the recipe...%>
+        <p>Ingredients: <%= render recipe.ingredients %></p><%#Finds the _ingredient partial & selects the associated ingredients.%>
+      <% end %>
       <p>
-        <span class="quiet">Created <small><%= time_ago_in_words(recipe.created_at) %></small></span><%#Displays how long ago recipe was created%>
+        <span class="quiet">Created <small><%= time_ago_in_words(recipe.created_at) %> ago by <%= recipe.chef.chefname.titleize %></small></span><%#Displays how long ago recipe was created%>
       </p>
       <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?) %><%#The @recipe in the Edit & Delete variable had to be changed to 'recipe'.%>
         <div class="recipe-actions">

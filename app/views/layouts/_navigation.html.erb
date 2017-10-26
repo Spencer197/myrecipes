@@ -19,7 +19,7 @@
         <li><%= link_to "Chefs", chefs_path %></li><%# Creates a "Chefs" link in the navbar %>
         <li><%= link_to "All Recipes", recipes_path %></li>
         <% if logged_in? %>
-          <li class="dropdown">
+        <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%=link_to "Create a new recipe", new_recipe_path %></li><%#This line replaces that below to change the menu word from "Action" to "Create a new recipe".%>
@@ -31,8 +31,23 @@
               <li role="separator" class="divider"></li>
               <li><a href="#">One more separated link</a></li>
             </ul>
-          </li>
+          </li>  
         <% end %>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredients <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%=link_to "All Ingredients", ingredients_path %></li><%#This line replaces that below to change the menu word from "Action" to "Create a new recipe".%>
+              <%#<li><a href="#">Action</a></li>%>
+              <% Ingredient.all.each do |ingredient| %>
+                <li><%= link_to ingredient.name.titleize, ingredient_path(ingredient) %></li>
+              <% end %>
+              <% if logged_in? && current_chef.admin? %><%#Restricts "New Ingredient" action to admin. %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "New Ingredient", new_ingredient_path %> </li>
+              <% end %>
+            </ul>
+          </li>
+        
         </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">

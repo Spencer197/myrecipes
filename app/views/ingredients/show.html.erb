@@ -1,0 +1,13 @@
+<%= render 'shared/page_title', title: "#{ @ingredient.name }" %>
+<% if @ingredient.recipes.count != 0 %>
+  <h4 align="center">Recipes containing <%= @ingredient.name %></h4><%#Shows the chef's name under the gravatar image.%>
+  <div align="center">
+    <%= will_paginate @ingredient_recipes %><%# Calls will_paginate method for chefs index data. Adds page selector at top of page.%>
+  </div>
+  <%= render 'recipes/recipe', obj: @ingredient_recipes %><%# Renders _recipe.html.erb partial using its path, then defines the object to be used to render a chef's recipes.%>
+  <div align="center">
+    <%= will_paginate @ingredient_recipes %><%# Calls will_paginate method for chefs index data.  Adds page selector at bottom of page.%>
+  </div>
+<% else %>
+  <h4 align="center">No recipes yet!</h4>
+<% end %>
