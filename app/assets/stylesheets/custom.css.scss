@@ -160,3 +160,7 @@ footer ul li {
 hr {
   border-color: #ff7f00;
 }
+
+.input_checkbox input {
+  width: auto !important;
+}//Enables Windows to display ingredient checkboxes correctly.

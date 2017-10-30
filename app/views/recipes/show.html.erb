@@ -6,7 +6,10 @@
   <h4 class="center description"><strong>Steps: </strong></h4>
   <hr /><%#Adds a line across the <h4> section%>
   <%= simple_format(@recipe.description) %><%#Displays recipe in the format it was entered by chef/user.%>
-  <hr />
+  <hr /><%#Adds a line under the description %>
+  <% if @recipe.ingredients.any? %><%#This loop displays the ingredients links under each recipe in each recipe's show page.%>
+    <p>Ingredients: <%= render @recipe.ingredients %></p>
+  <% end %>
   <div class="pull-right">
     <p class="center">
       <em>Created by:</em><%#<em> = Italics%>
