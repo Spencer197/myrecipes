@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   #get '/recipes/:id', to: 'recipes#show', as: 'recipe'# "as: 'recipe'" adds  "recipe(_path)" to the prefix.
   #post '/recipes', to: 'recipes#create'
   #The above commented routes are all replaced by the lines below.
-  resources :recipes
+  resources :recipes do
+    resources :comments, only: [:create]#A nested route that provides the route for creating comments.
+  end
   
   get '/signup', to: 'chefs#new'#This line directs the '/signup' route to the chef controller, new action rather than the new route.
   resources :chefs, except: [:new]#Makes an exception of 'new' so that it is replaced by 'signup'.

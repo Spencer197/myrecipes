@@ -13,7 +13,8 @@
         <p>Ingredients: <%= render recipe.ingredients %></p><%#Finds the _ingredient partial & selects the associated ingredients.%>
       <% end %>
       <p>
-        <span class="quiet">Created <small><%= time_ago_in_words(recipe.created_at) %> ago by <%= recipe.chef.chefname.titleize %></small></span><%#Displays how long ago recipe was created%>
+        <span class="quiet">Created <small><%= time_ago_in_words(recipe.created_at) %> ago by <%= recipe.chef.chefname.titleize %><%#Displays how long ago recipe was created%>
+                                                          | <%= pluralize(recipe.comments.count, 'Comment') %></small></span><%#Displays the number of comments for a recipe with pluralization.%>
       </p>
       <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?) %><%#The @recipe in the Edit & Delete variable had to be changed to 'recipe'.%>
         <div class="recipe-actions">
