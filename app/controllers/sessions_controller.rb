@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
   def create# Handles the form submission, creates the session, & moves user to a logged in state. 
     chef = Chef.find_by(email: params[:session][:email].downcase)#Finds chef by email.
     if chef && chef.authenticate(params[:session][:password])
-      session[:chef_id] = chef.id
+      session[:chef_id] = chef.id#Saves the encrypted chef_id in the session hash.
+      cookies.signed[:chef_id] = chef.id#Saves the encrypted chef_id in the cookies; not just in the session hash only.
       flash[:success] = "You have successfully logged in."
       redirect_to chef
     else

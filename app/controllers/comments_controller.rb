@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(comment_params)
     @comment.chef = current_chef
     if @comment.save
-      flash[:success] = "Comment was created successfully"
-      redirect_to recipe_path(@recipe)
+      ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
+      #flash[:success] = "Comment was created successfully" - Flash not needed since comments are in real time.
+      #redirect_to recipe_path(@recipe) - We don't want a redirect after posting a real time comment.
     else
       flash[:danger] = "Invalid! Comment was not created!"
       redirect_to :back
