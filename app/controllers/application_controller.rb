@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?
-    !!current_chef# !! makes current_use a boolean expression.
+    !!current_chef# !! makes current_chef a boolean expression.
   end
   
   def require_user

@@ -6,4 +6,5 @@ App.comments = App.cable.subscriptions.create "CommentsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $("#messages").prepend(data)# Called when there's incoming data on the websocket for this channel - Adds latest comment to top of comments list.
+    $("#messages .comment-fix:first").prepend(data)# Called when there's incoming data on the websocket for this channel - Adds latest comment to top of comments list.
+    #.comment-fix:first calls the row comment-fix class in the _comment partial and adds it to the top of the comments list as the "first" message. 

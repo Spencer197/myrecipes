@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'#Get the '/home' route and send it to the Pages Controller, home action.
   get '/about', to: 'pages#about'
   get '/help', to: 'pages#help'
-  get '/chat', to: 'pages#chat'
+  #get '/chat', to: 'pages#chat'
   #get '/ingredients', to: 'pages#ingredients'
   #get 'recipes', to: 'recipes#index'
   #get '/recipes/new', to: 'recipes#new', as: 'new_recipe'# "as: 'new_recipe'" adds "new_recipe(_path)" to the prefix.
@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   resources :ingredients, except: [:destroy]
   
   mount ActionCable.server => '/cable'#Provides the route for ActionCable. **Does not appear as a route.**
+  get '/chat', to: 'chatrooms#show'
+  
+  resources :messages, only: [:create]
 end

@@ -8,4 +8,5 @@ class Chef < ApplicationRecord
   has_many :recipes, dependent: :destroy #Asserts that Chef class can have many recipes associated with it.  "dependent: :destroy" ensure that all of a chef's recipes are destroyed with the chef.
   has_secure_password
   validates :password, presence: true, length: { minimum: 5 }, allow_nil: true# 'allow_nil: true' allows a nil password for an edit, but requires one for signup.
+  has_many :messages, dependent: :destroy
 end
