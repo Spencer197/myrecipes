@@ -2,7 +2,7 @@
 <%#<hr />%>
 <%= render 'shared/page_title', title: @recipe.name %><%#Passes @recipe.name to partial for display.%>
 
-<div class="well col-md-8 col-md-offset-2">
+<div class="well col-md-10 col-md-offset-1">
   <h4 class="center description"><strong>Steps: </strong></h4>
   <hr /><%#Adds a line across the <h4> section%>
   <%= simple_format(@recipe.description) %><%#Displays recipe in the format it was entered by chef/user.%>
@@ -32,10 +32,19 @@
     <%= link_to "Return to recipes listing", recipes_path, class: "btn btn-xs btn-primary" %>
   </div>
 </div>
-
+<div class="row liking"><%# This block renders the "Like/Dislike" icons. %>
+  <div class="row col-md-8 col-md-offset-2">
+    <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-up"></i> 
+    <% end %><%= @recipe.thumbs_up_total %> ||
+    <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-down"></i> 
+    <% end %><%= @recipe.thumbs_down_total %><%# Lines 39 & 42 add the total thumbs up & thumbs down next to the icons. %>
+  </div>
+</div>
 <% if logged_in? %>
   <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-10 col-md-offset-1">
         <h3>Comments: </h3>
         <hr />
         <%= form_for([@recipe, @comment], remote: true, :html => {class: "form-horizontal", role: "form"}) do |f| %><%# The snippet "remote: true" will submit the comment form via Ajax. %>
@@ -61,7 +70,7 @@
 
 <% if @recipe.comments != 0 %><%#This if/else block renders the comments display section. %> 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
       <h3>Prior Comments: </h3>
         <div id="messages">
           <%= render partial: 'comments/comments', object: @comments %>

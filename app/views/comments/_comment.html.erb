@@ -4,7 +4,7 @@
       <%= gravatar_for(comment.chef, size: 60) %><%#Displays chef's Gravatar image.%>
     </section>
   </div>
-  <div class="col-md-8 well">
+  <div class="col-md-10 well">
     <p><%= comment.description %></p><%#Displays a comment.%>
     <p>
       <span class="quiet"><small>Created: <%= time_ago_in_words(comment.created_at) %> ago by 

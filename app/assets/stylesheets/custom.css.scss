@@ -147,9 +147,9 @@ footer ul li {
   color: #ff7f00;
 }
 
-.col-md-8.well {
-   background-color: #331f06;
-   border-color: #ff7f00;
+.col-md-10.well {
+  background-color: #331f06;
+  border-color: #ff7f00;
  }
  
 .well.col-md-4.col-md-offset-4 {
@@ -200,4 +200,8 @@ hr {
   height: 16em;
   position: relative;
   overflow: auto;
+}
+
+.liking {
+  padding-right: 10px;
 }
