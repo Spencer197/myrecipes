@@ -9,8 +9,12 @@
   
     
     <div class="col-md-10 well">
-      <h4><%= link_to recipe.name, recipe_path(recipe) %></h4><%#Displays recipe's name%>
-      <p><%= truncate(recipe.description, length: 150)%></p><%#Display recipe's description%>
+      <h4><%= link_to recipe.name, recipe_path(recipe) %>
+        <div class="pull-right img">
+          <%= image_tag(recipe.image.url, size: "150x100") if recipe.image? %>
+        </div>
+      </h4><%#Displays recipe's name & it's image%>
+      <%#<p><%= truncate(recipe.description, length: 150)</p><%#Display recipe's description%>
       <% if recipe.ingredients.any? %><%# If an associated ingredient exists in the recipe...%>
         <p>Ingredients: <%= render recipe.ingredients %></p><%#Finds the _ingredient partial & selects the associated ingredients.%>
       <% end %>
@@ -36,6 +40,6 @@
             <% end %> <%= recipe.thumbs_down_total %>
           </div>
         </div>
-      </div>  
-  </div>  
-<% end %>
+      </div>
+    </div>  
+  <% end %>

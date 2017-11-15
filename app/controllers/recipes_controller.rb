@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
     end
   
     def recipe_params
-      params.require(:recipe).permit(:name, :description, ingredient_ids: [])#Permits name, description & ingredient_ids as recipe params.
+      params.require(:recipe).permit(:name, :description, :image, ingredient_ids: [])#Permits name, description & ingredient_ids as recipe params.
     end
     
     def require_same_user

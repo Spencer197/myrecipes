@@ -8,6 +8,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   has_many :comments, dependent: :destroy#destroys all comments associated with a chef when that chef is destroyed.
   has_many :likes, dependent: :destroy
+  mount_uploader :image, ImageUploader# Forms the association between a recipe and its image.
   
   def thumbs_up_total
     self.likes.where(like: true).size
